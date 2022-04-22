@@ -4,7 +4,7 @@ import psycopg2
 import datetime 
 from datetime import datetime 
  
-bot = telebot.TeleBot('') 
+bot = telebot.TeleBot('1688634236:AAF3if6_pqDFA2EsKV2A0vktS7IZqK_9w9E') 
  
 def clav_message(): 
     markup=types.ReplyKeyboardMarkup(resize_keyboard=True) 
@@ -54,13 +54,13 @@ def reply_message(message):
         bot.send_message(message.chat.id, 'Выбери на какой день', reply_markup=markup) 
          
     if message.text == 'Понедельник':  
-        conn= psycopg2.connect(database = "raspisanie",
-                                user="postgres",
-                                password="123",
-                                host="localhost",
-                                port="5433")
+        conn= psycopg2.connect(database="rasp",  
+                                               user="postgres",  
+                                               password="123456",  
+                                               host="localhost",  
+                                               port="5432")
         cursor = conn.cursor() 
-        cursor.execute("SELECT subject,room_numb, start_time FROM timetable WHERE day='понедельник'") 
+        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day='понедельник'") 
         records=cursor.fetchall() 
         result='' 
         for arr in records :
@@ -70,13 +70,13 @@ def reply_message(message):
         bot.send_message(message.chat.id, result, reply_markup=clav_message())
            
     if message.text == 'Вторник': 
-        conn = psycopg2.connect(database = "raspisanie",
-                                user="postgres",
-                                password="123",
-                                host="localhost",
-                                port="5433")
+        conn = psycopg2.connect(database="rasp",  
+                                               user="postgres",  
+                                               password="123456",  
+                                               host="localhost",  
+                                               port="5432")
         cursor = conn.cursor() 
-        cursor.execute("SELECT subject,room_numb, start_time FROM timetable WHERE day='вторник'") 
+        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day='вторник'") 
         records=cursor.fetchall() 
         result='' 
         for arr in records :
@@ -86,13 +86,13 @@ def reply_message(message):
         bot.send_message(message.chat.id, result, reply_markup=clav_message()) 
           
     if message.text == 'Среда': 
-        conn = psycopg2.connect(database = "raspisanie",
-                                user="postgres",
-                                password="123",
-                                host="localhost",
-                                port="5433")
+        conn = psycopg2.connect(database="rasp",  
+                                               user="postgres",  
+                                               password="123456",  
+                                               host="localhost",  
+                                               port="5432")
         cursor = conn.cursor() 
-        cursor.execute("SELECT subject,room_numb, start_time FROM timetable WHERE day='среда'") 
+        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day='среда'") 
         records=cursor.fetchall() 
         result='' 
         for arr in records :
@@ -101,13 +101,13 @@ def reply_message(message):
                 result+='\n'   
         bot.send_message(message.chat.id, result, reply_markup=clav_message()) 
     if message.text == 'Четверг': 
-        conn = psycopg2.connect(database = "raspisanie",
-                                user="postgres",
-                                password="123",
-                                host="localhost",
-                                port="5433")
+        conn = psycopg2.connect(database="rasp",  
+                                               user="postgres",  
+                                               password="123456",  
+                                               host="localhost",  
+                                               port="5432")
         cursor = conn.cursor() 
-        cursor.execute("SELECT subject,room_numb, start_time FROM timetable WHERE day='четверг'") 
+        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day='четверг'") 
         records=cursor.fetchall() 
         result='' 
         for arr in records :
@@ -116,13 +116,13 @@ def reply_message(message):
                 result+='\n'  
         bot.send_message(message.chat.id, result, reply_markup=clav_message())   
     if message.text == 'Пятница': 
-        conn = psycopg2.connect(database = "raspisanie",
-                                user="postgres",
-                                password="123",
-                                host="localhost",
-                                port="5433")
+        conn = psycopg2.connect(database="rasp",  
+                                               user="postgres",  
+                                               password="123456",  
+                                               host="localhost",  
+                                               port="5432")
         cursor = conn.cursor()
-        cursor.execute("SELECT subject,room_numb, start_time FROM timetable WHERE day='пятница'") 
+        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day='пятница'") 
         records=cursor.fetchall() 
         result='' 
         for arr in records :
@@ -132,13 +132,13 @@ def reply_message(message):
         bot.send_message(message.chat.id, result, reply_markup=clav_message()) 
  
     if message.text == 'Суббота': 
-        conn = psycopg2.connect(database = "raspisanie",
-                                user="postgres",
-                                password="123",
-                                host="localhost",
-                                port="5433")
+        conn = psycopg2.connect(database="rasp",  
+                                               user="postgres",  
+                                               password="123456",  
+                                               host="localhost",  
+                                               port="5432")
         cursor = conn.cursor()
-        cursor.execute("SELECT subject,room_numb, start_time FROM timetable WHERE day='суббота'") 
+        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day='суббота'") 
         records=cursor.fetchall() 
         result='' 
         for arr in records :
@@ -156,13 +156,13 @@ def reply_message(message):
             days= ['понедельник','вторник','среда','четверг','пятница','суббота','воскресенье'] 
             ceg=str(days[today]) 
             bot.send_message(message.chat.id, ceg) 
-            conn = psycopg2.connect(database = "raspisanie",
-                                user="postgres",
-                                password="123",
-                                host="localhost",
-                                port="5433")
+            conn = psycopg2.connect(database="rasp",  
+                                               user="postgres",  
+                                               password="123456",  
+                                               host="localhost",  
+                                               port="5432")
             cursor = conn.cursor()
-            cursor.execute("SELECT subject,room_numb, start_time FROM timetable WHERE day=%s",[ceg]) 
+            cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day=%s",[ceg]) 
             records=cursor.fetchall() 
             result='' 
             for arr in records :
@@ -179,13 +179,13 @@ def reply_message(message):
         days= ['понедельник','вторник','среда','четверг','пятница','суббота','воскресенье'] 
         ceg=str(days[today]) 
         bot.send_message(message.chat.id, ceg) 
-        conn = psycopg2.connect(database = "raspisanie",
-                                user="postgres",
-                                password="123",
-                                host="localhost",
-                                port="5433")
+        conn = psycopg2.connect(database="rasp",  
+                                               user="postgres",  
+                                               password="123456",  
+                                               host="localhost",  
+                                               port="5432")
         cursor = conn.cursor() 
-        cursor.execute("SELECT subject,room_numb, start_time FROM timetable WHERE day=%s",[ceg]) 
+        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day=%s",[ceg]) 
         records=cursor.fetchall() 
         result='' 
         for arr in records :
