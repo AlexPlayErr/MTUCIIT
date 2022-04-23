@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QApplication, QWidget, QLineEdit,QPushButton
+from PyQt5.QtWidgets import QApplication, QWidget, QLineEdit,QPushButton
 import sys
 class Window(QWidget):
     

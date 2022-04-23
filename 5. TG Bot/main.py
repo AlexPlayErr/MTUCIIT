@@ -60,9 +60,9 @@ def reply_message(message):
                                                host="localhost",  
                                                port="5432")
         cursor = conn.cursor() 
-        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day='понедельник'") 
+        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day=%s",(str('Понедельник'),)) 
         records=cursor.fetchall() 
-        result='' 
+        result='1' 
         for arr in records :
             for word in arr:
                 result=result +str(word)
@@ -76,9 +76,9 @@ def reply_message(message):
                                                host="localhost",  
                                                port="5432")
         cursor = conn.cursor() 
-        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day='вторник'") 
+        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day=%s",(str('Вторник'),) )
         records=cursor.fetchall() 
-        result='' 
+        result='2' 
         for arr in records :
             for word in arr:
                 result=result +str(word)
@@ -92,9 +92,9 @@ def reply_message(message):
                                                host="localhost",  
                                                port="5432")
         cursor = conn.cursor() 
-        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day='среда'") 
+        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day=%s",(str('Среда'),)) 
         records=cursor.fetchall() 
-        result='' 
+        result='3' 
         for arr in records :
             for word in arr:
                 result=result +str(word)
@@ -107,9 +107,9 @@ def reply_message(message):
                                                host="localhost",  
                                                port="5432")
         cursor = conn.cursor() 
-        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day='четверг'") 
+        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day=%s",(str('Четверг'),)) 
         records=cursor.fetchall() 
-        result='' 
+        result='4' 
         for arr in records :
             for word in arr:
                 result=result +str(word)
@@ -122,9 +122,9 @@ def reply_message(message):
                                                host="localhost",  
                                                port="5432")
         cursor = conn.cursor()
-        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day='пятница'") 
+        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day=%s",(str('Пятница'),)) 
         records=cursor.fetchall() 
-        result='' 
+        result='5' 
         for arr in records :
             for word in arr:
                 result=result +str(word)
@@ -138,9 +138,9 @@ def reply_message(message):
                                                host="localhost",  
                                                port="5432")
         cursor = conn.cursor()
-        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day='суббота'") 
+        cursor.execute("SELECT subject,room_num, start_time FROM timetable WHERE day=%s",(str('Суббота'),)) 
         records=cursor.fetchall() 
-        result='' 
+        result='6' 
         for arr in records :
             for word in arr:
                 result=result +str(word)
